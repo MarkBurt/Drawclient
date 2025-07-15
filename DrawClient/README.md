@@ -1,6 +1,53 @@
-# DrawClient - Tauri + React 绘图应用
+# DrawClient - 跨平台数据库设计
 
-这是一个基于 Tauri 和 React 构建的桌面绘图应用程序。Tauri 提供了轻量级的桌面应用框架，React 负责前端界面开发。
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Tauri](https://img.shields.io/badge/Tauri-2.0-blue.svg)](https://tauri.app/)
+[![React](https://img.shields.io/badge/React-18-blue.svg)](https://reactjs.org/)
+[![Rust](https://img.shields.io/badge/Rust-1.70+-orange.svg)](https://www.rust-lang.org/)
+
+一个现代化的跨平台桌面绘图应用程序，基于 Tauri 和 React 构建。结合了 Rust 的高性能后端和 React 的现代化前端，为用户提供流畅的绘图体验。
+
+## ✨ 特性
+
+- 🎨 **直观的绘图界面** - 简洁易用的用户界面
+- 🚀 **高性能** - Rust 后端确保应用运行流畅
+- 🌍 **跨平台** - 支持 Windows、macOS 和 Linux
+- 📦 **轻量级** - 小体积，低内存占用
+- 🔒 **安全** - Tauri 提供严格的安全模型
+- 🎯 **现代化** - 使用最新的技术栈
+
+## 🚀 快速开始
+
+### 环境要求
+
+- [Node.js](https://nodejs.org/) (推荐 18+)
+- [Rust](https://www.rust-lang.org/) (通过 [rustup](https://rustup.rs/) 安装)
+- 系统依赖 (根据目标平台而定)
+
+### 安装
+
+1. 克隆仓库
+```bash
+git clone https://github.com/your-username/DrawClient.git
+cd DrawClient
+```
+
+2. 安装依赖
+```bash
+npm install
+```
+
+3. 启动开发服务器
+```bash
+npm run tauri dev
+```
+
+### 构建
+
+```bash
+# 构建生产版本
+npm run tauri build
+```
 
 ## 项目目录结构
 
@@ -74,7 +121,7 @@ DrawClient/
 - [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
 
 ### 环境要求
-- Node.js (推荐 16+)
+- Node.js (推荐 18+)
 - Rust (通过 rustup 安装)
 - 系统依赖 (根据目标平台而定)
 
@@ -90,10 +137,51 @@ npm run tauri dev
 npm run tauri build
 ```
 
-## 技术特点
+## 🛠️ 技术栈
 
-- **跨平台**: 支持 Windows、macOS 和 Linux
-- **轻量级**: Tauri 生成的应用体积小，内存占用低
-- **现代化**: 使用最新的前端技术栈和 Rust 语言
-- **安全性**: Tauri 提供了严格的安全模型和权限控制
-- **性能**: Rust 后端提供高性能的系统集成能力
+### 前端
+- **React 18** - 现代化的用户界面库
+- **Vite** - 快速的构建工具
+- **CSS3** - 现代样式设计
+
+### 后端
+- **Rust** - 高性能系统编程语言
+- **Tauri 2.0** - 轻量级桌面应用框架
+
+### 开发工具
+- **TypeScript** - 类型安全的 JavaScript
+- **ESLint** - 代码质量检查
+- **Prettier** - 代码格式化
+
+## 🤝 贡献
+
+我们欢迎所有形式的贡献！请查看 [贡献指南](CONTRIBUTING.md) 了解如何参与项目开发。
+
+### 开发流程
+
+1. Fork 本仓库
+2. 创建你的特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交你的更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 打开一个 Pull Request
+
+## 📝 许可证
+
+本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
+
+## 🙏 致谢
+
+- [Tauri](https://tauri.app/) - 提供了出色的桌面应用框架
+- [React](https://reactjs.org/) - 强大的前端库
+- [Rust](https://www.rust-lang.org/) - 安全高效的系统编程语言
+
+## 📞 联系
+
+如果你有任何问题或建议，请通过以下方式联系我们：
+
+- 提交 [Issue](https://github.com/your-username/DrawClient/issues)
+- 发送邮件到 hu_works.com
+
+---
+
+⭐ 如果这个项目对你有帮助，请给我们一个 Star！
