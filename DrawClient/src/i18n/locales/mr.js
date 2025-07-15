@@ -68,7 +68,7 @@ const mr = {
     storage_flushed: "स्टोरेज साफ केले",
     help: "मदत",
     shortcuts: "शॉर्टकट्स",
-    ask_on_discord: "आमच्याकडे Discord वर विचारा",
+    ask_on_discord: "लेखकाशी संपर्क साधा",
     feedback: "प्रतिक्रिया",
     no_changes: "कोणतेही बदल नाहीत",
     loading: "लोड होत आहे...",

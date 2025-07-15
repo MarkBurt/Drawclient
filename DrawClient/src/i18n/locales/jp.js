@@ -75,7 +75,7 @@ const jp = {
     storage_flushed: "ストレージが消去されました",
     help: "ヘルプ",
     shortcuts: "ショートカット",
-    ask_on_discord: "Discordで質問する",
+    ask_on_discord: "作者に連絡",
     feedback: "フィードバック",
     no_changes: "変更なし",
     loading: "読み込み中...",

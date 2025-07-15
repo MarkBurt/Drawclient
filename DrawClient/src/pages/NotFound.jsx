@@ -6,24 +6,9 @@ export default function NotFound() {
       <p>hey there!</p>
 
       <p>looking for something you couldn&apos;t find?</p>
-      <p>
-        check out the{" "}
-        <a className="text-blue-600" href={socials.docs}>
-          docs
-        </a>
-        ,{" "}
-        <a className="text-blue-600" href="mailto:drawdb@outlook.com">
-          shoot us an email
-        </a>{" "}
-        or{" "}
-        <a className="text-blue-600" href={socials.discord}>
-          a message on discord
-        </a>
-      </p>
       <br />
       <p className="opacity-70">
-        * to create a relationship hold the blue dot of a field and drag it
-        towards the field you want to connect it to
+       * 要建立关系，请握住一个区域的蓝色圆点，并将其向您想要连接的区域拖动。
       </p>
       <a
         className="text-blue-600"

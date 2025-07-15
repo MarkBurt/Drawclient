@@ -77,7 +77,7 @@ const hu = {
     storage_flushed: "A tárhely kiürítve",
     help: "Súgó",
     shortcuts: "Gyorsbillentyűk",
-    ask_on_discord: "Érdeklődjön Discord-on",
+    ask_on_discord: "Kapcsolat a szerzővel",
     feedback: "Visszajelzés",
     no_changes: "Nem volt módosítva",
     loading: "Betöltés...",

@@ -75,7 +75,7 @@ const ko = {
     storage_flushed: "저장소가 비워졌습니다",
     help: "도움말",
     shortcuts: "단축키",
-    ask_on_discord: "디스코드에서 문의하기",
+    ask_on_discord: "작성자에게 문의",
     feedback: "피드백",
     no_changes: "변경 사항 없음",
     loading: "로딩 중...",

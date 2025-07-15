@@ -207,16 +207,6 @@ export default function BugReport() {
                 } grow`}
               />
             </div>
-            <Button
-              block
-              icon={<IconGithubLogo />}
-              style={{ backgroundColor: "#239144", color: "white" }}
-              onClick={() => {
-                window.open(`${socials.github}/issues`, "_self");
-              }}
-            >
-              Add an issue
-            </Button>
           </div>
         </div>
         <div className="col-span-8 md:col-span-12 lg:col-span-8">

@@ -68,7 +68,7 @@ const fa = {
     storage_flushed: "حافظه پاک شد",
     help: "راهنما",
     shortcuts: "میانبرها",
-    ask_on_discord: "پرسیدن در Discord",
+    ask_on_discord: "تماس با نویسنده",
     feedback: "بازخورد",
     no_changes: "بدون تغییرات",
     loading: "در حال بارگذاری...",

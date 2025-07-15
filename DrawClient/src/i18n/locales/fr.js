@@ -68,7 +68,7 @@ const fr = {
     storage_flushed: "Stockage vidé",
     help: "Aide",
     shortcuts: "Raccourcis",
-    ask_on_discord: "Demandez-nous sur Discord",
+    ask_on_discord: "Contacter l'auteur",
     feedback: "Retour d'information",
     no_changes: "Aucun changement",
     loading: "Chargement...",

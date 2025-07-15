@@ -77,7 +77,7 @@ const it = {
     storage_flushed: "Pulizia eseguita!",
     help: "Aiuto",
     shortcuts: "Scorciatoie",
-    ask_on_discord: "Contattaci su Discord",
+    ask_on_discord: "Contatta l'autore",
     feedback: "Feedback",
     no_changes: "Nessun cambio",
     loading: "Caricamento in corso…",

@@ -68,7 +68,7 @@ const gu = {
     storage_flushed: "સ્ટોરેજ સાફ કરાયું",
     help: "મદદ",
     shortcuts: "શૉર્ટકટ્સ",
-    ask_on_discord: "અમને Discord પર પૂછો",
+    ask_on_discord: "લેખક સાથે સંપર્ક કરો",
     feedback: "પ્રતિસાદ",
     no_changes: "કોઈ ફેરફાર નથી",
     loading: "લોડ થઇ રહ્યું છે...",

@@ -75,7 +75,7 @@ const bn = {
     storage_flushed: "স্টোরেজ ফ্লাশ হয়েছে",
     help: "সাহায্য",
     shortcuts: "শর্টকাট",
-    ask_on_discord: "ডিসকর্ডে আমাদের জিজ্ঞাসা করুন",
+    ask_on_discord: "লেখকের সাথে যোগাযোগ করুন",
     feedback: "প্রতিক্রিয়া",
     no_changes: "কোনও পরিবর্তন নেই",
     loading: "লোড হচ্ছে...",

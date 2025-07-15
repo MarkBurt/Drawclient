@@ -75,7 +75,7 @@ const no = {
     storage_flushed: "Lagring tømt",
     help: "Hjelp",
     shortcuts: "Snarveier",
-    ask_on_discord: "Spør oss på Discord",
+    ask_on_discord: "Kontakt forfatter",
     feedback: "Tilbakemelding",
     no_changes: "Ingen endringer",
     loading: "Laster...",

@@ -75,7 +75,7 @@ const ro = {
     storage_flushed: "Depozitorea a fost golită",
     help: "Ajutor",
     shortcuts: "Scurtături",
-    ask_on_discord: "Întrebați-ne pe Discord",
+    ask_on_discord: "Contactați autorul",
     feedback: "Feedback",
     no_changes: "Nicio modificare",
     loading: "Se încarcă...",

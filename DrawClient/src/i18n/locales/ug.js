@@ -68,7 +68,7 @@ const ug = {
     storage_flushed: "ساقلاش تازىلاندى",
     help: "ياردەم",
     shortcuts: "قىسقا يوللار",
-    ask_on_discord: "بىز بىلەن Discord دا سوراڭ",
+    ask_on_discord: "ئاپتور بىلەن ئالاقىلىشىڭ",
     feedback: "پىكىر",
     no_changes: "بىرەر ئۆزگىرىش يوق",
     loading: "يۈكلەش...",

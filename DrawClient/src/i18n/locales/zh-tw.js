@@ -77,7 +77,7 @@ const zh_tw = {
     storage_flushed: "儲存空間已清除",
     help: "說明",
     shortcuts: "快速鍵",
-    ask_on_discord: "在 Discord 上詢問我們",
+    ask_on_discord: "聯絡作者",
     feedback: "意見回饋",
     no_changes: "無變更",
     loading: "載入中...",

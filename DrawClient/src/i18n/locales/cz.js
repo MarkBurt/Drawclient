@@ -76,7 +76,7 @@ const cz = {
     storage_flushed: "Úložiště propláchnuto",
     help: "Pomoc",
     shortcuts: "Zkratky",
-    ask_on_discord: "Zeptejte se nás na Discord",
+    ask_on_discord: "Kontaktovat autora",
     feedback: "Zpětná vazba",
     no_changes: "Žádné změny",
     loading: "Načítání...",

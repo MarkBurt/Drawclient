@@ -75,7 +75,7 @@ const he = {
     storage_flushed: "אחסון נוקה",
     help: "עזרה",
     shortcuts: "קיצורי דרך",
-    ask_on_discord: "שאל אותנו ב-Discord",
+    ask_on_discord: "צור קשר עם המחבר",
     feedback: "משוב",
     no_changes: "אין שינויים",
     loading: "טוען...",

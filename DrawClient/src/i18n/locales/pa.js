@@ -68,7 +68,7 @@ const pa = {
     storage_flushed: "ਸਟੋਰੇਜ ਸਾਫ਼ ਕੀਤਾ ਗਿਆ",
     help: "ਮਦਦ",
     shortcuts: "ਸ਼ਾਰਟਕਟ",
-    ask_on_discord: "ਸਾਡੇ ਤੋਂ Discord 'ਤੇ ਪੁੱਛੋ",
+    ask_on_discord: "ਲੇਖਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ",
     feedback: "ਫੀਡਬੈਕ",
     no_changes: "ਕੋਈ ਬਦਲਾਅ ਨਹੀਂ",
     loading: "ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...",

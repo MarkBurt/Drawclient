@@ -75,7 +75,7 @@ const de = {
     storage_flushed: "Speicher geleert",
     help: "Hilfe",
     shortcuts: "Tastenkürzel",
-    ask_on_discord: "Fragen Sie uns auf Discord",
+    ask_on_discord: "Autor kontaktieren",
     feedback: "Feedback",
     no_changes: "Keine Änderungen",
     loading: "Laden...",

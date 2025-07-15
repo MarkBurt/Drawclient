@@ -68,7 +68,7 @@ const hi = {
     storage_flushed: "स्टोरेज साफ़ किया गया",
     help: "मदद",
     shortcuts: "शॉर्टकट्स",
-    ask_on_discord: "हमसे Discord पर पूछें",
+    ask_on_discord: "लेखक से संपर्क करें",
     feedback: "फीडबॅक",
     no_changes: "कोई बदलाव नहीं",
     loading: "लोड हो रहा है...",

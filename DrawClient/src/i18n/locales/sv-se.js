@@ -75,7 +75,7 @@ const sv = {
     storage_flushed: "Lagring tömd",
     help: "Hjälp",
     shortcuts: "Kortkommandon",
-    ask_on_discord: "Fråga oss på Discord",
+    ask_on_discord: "Kontakta författare",
     feedback: "Feedback",
     no_changes: "Inga ändringar",
     loading: "Laddar...",

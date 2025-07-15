@@ -76,7 +76,7 @@ const pt = {
     storage_flushed: "Armazenamento limpo",
     help: "Ajuda",
     shortcuts: "Atalhos",
-    ask_on_discord: "Pergunte no Discord",
+    ask_on_discord: "Contatar o autor",
     feedback: "Feedback",
     no_changes: "Sem alterações",
     loading: "Carregando...",
