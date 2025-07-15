@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const filename = "share.json";
-const description = "drawDB diagram";
+const description = "drawClient diagram";
 
 const baseUrl = import.meta.env.VITE_BACKEND_URL;
 
