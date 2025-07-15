@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    @apply h-full w-full;
+  }
+}
+
+/* 绘图画布样式 */
+.canvas-container {
+  @apply relative overflow-hidden bg-gray-50;
+}
+
+.drawing-element {
+  @apply cursor-pointer;
+}
+
+.drawing-element.selected {
+  @apply stroke-blue-500;
+  stroke-width: 2;
+}
+
+.drawing-element:hover {
+  @apply stroke-blue-400;
+}
+
+/* 工具栏按钮样式 */
+.toolbar-button {
+  @apply px-3 py-2 rounded-md text-sm font-medium transition-colors;
+}
+
+.toolbar-button.active {
+  @apply bg-blue-500 text-white;
+}
+
+.toolbar-button:not(.active) {
+  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+}
+
+/* 画布网格 */
+.canvas-grid {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
