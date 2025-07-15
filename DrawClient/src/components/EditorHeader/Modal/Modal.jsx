@@ -34,6 +34,7 @@ import ImportSource from "./ImportSource";
 import SetTableWidth from "./SetTableWidth";
 import Language from "./Language";
 import Share from "./Share";
+import ContactAuthor from "./ContactAuthor";
 import CodeEditor from "../../CodeEditor";
 import { useTranslation } from "react-i18next";
 import { importSQL } from "../../../utils/importSQL";
@@ -343,6 +344,8 @@ export default function Modal({
         return <Language />;
       case MODAL.SHARE:
         return <Share title={title} setModal={setModal} />;
+      case MODAL.CONTACT_AUTHOR:
+        return <ContactAuthor />;
       default:
         return <></>;
     }
@@ -386,9 +389,9 @@ export default function Modal({
           ((modal === MODAL.IMG || modal === MODAL.CODE) && !exportData.data) ||
           (modal === MODAL.SAVEAS && saveAsTitle === "") ||
           (modal === MODAL.IMPORT_SRC && importSource.src === ""),
-        hidden: modal === MODAL.SHARE,
+        hidden: modal === MODAL.SHARE || modal === MODAL.CONTACT_AUTHOR,
       }}
-      hasCancel={modal !== MODAL.SHARE}
+      hasCancel={modal !== MODAL.SHARE && modal !== MODAL.CONTACT_AUTHOR}
       cancelText={t("cancel")}
       width={getModalWidth(modal)}
       bodyStyle={{

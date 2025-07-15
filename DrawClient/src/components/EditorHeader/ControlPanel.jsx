@@ -1432,7 +1432,7 @@ export default function ControlPanel({
         function: () => window.open(`${socials.docs}/shortcuts`, "_blank"),
       },
       ask_on_discord: {
-        function: () => window.open(socials.discord, "_blank"),
+        function: () => setModal(MODAL.CONTACT_AUTHOR),
       },
       report_bug: {
         function: () => window.open("/bug-report", "_blank"),

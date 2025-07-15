@@ -85,6 +85,7 @@ export const MODAL = {
   TABLE_WIDTH: 9,
   LANGUAGE: 10,
   SHARE: 11,
+  CONTACT_AUTHOR: 12,
 };
 
 export const STATUS = {
