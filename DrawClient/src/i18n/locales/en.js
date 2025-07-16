@@ -82,7 +82,7 @@ const en = {
     ask_on_discord: "Contact Author",
     contact_author_title: "Contact the Author",
     contact_author_subtitle: "Get in touch with the DrawClient team through any of these channels:",
-    contact_github_desc: "Report issues, contribute, or view source code",
+    contact_github_desc: "Report issues, contribute, or view source code / https://github.com/MarkBurt/Drawclient",
     contact_twitter_desc: "Follow for updates and announcements",
     contact_discord_desc: "Join our community for discussions",
     contact_docs_desc: "Read guides and API documentation",

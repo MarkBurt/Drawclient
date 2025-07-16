@@ -14,7 +14,7 @@
 
 ### 报告方式
 
-1. **邮件**: 发送详细的漏洞报告到 security@drawclient.com
+1. **邮件**: 发送详细的漏洞报告到 hu_works@126.com 请注明 DrawClient 版本
 2. **GitHub Security Advisory**: 使用 GitHub 的私有漏洞报告功能
 
 ### 报告内容
@@ -74,7 +74,7 @@ DrawClient 包含以下安全功能：
 
 如果您对我们的安全策略有任何疑问，请联系：
 
-- 邮箱: security@drawclient.com
+- 邮箱: hu_works@126.com
 - GitHub: 创建 Issue（仅限非敏感问题）
 
 感谢您帮助保持 DrawClient 的安全！

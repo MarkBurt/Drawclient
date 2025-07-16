@@ -27,8 +27,14 @@
 ### 安装
 
 1. 克隆仓库
+#### 1.1 Gitee
 ```bash
-git clone https://github.com/your-username/DrawClient.git
+git clone https://gitee.com/xuanqings/drawclient.git
+cd DrawClient
+```
+#### 1.2 Github
+```bash
+git clone https://github.com/MarkBurt/Drawclient.git
 cd DrawClient
 ```
 
