@@ -30,7 +30,7 @@ export function toMySQL(diagram) {
               `\t\`${field.name}\` ${parseType(field)}${
                 dbToTypes[DB.MYSQL][field.type]?.signed && field.unsigned
                   ? " UNSIGNED"
-                  : ""
+                  : "" 
               }${field.notNull ? " NOT NULL" : ""}${
                 field.increment ? " AUTO_INCREMENT" : ""
               }${field.unique ? " UNIQUE" : ""}${
