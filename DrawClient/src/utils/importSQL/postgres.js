@@ -19,11 +19,32 @@ const affinity = {
   ),
 };
 
-export function fromPostgres(ast, diagramDb = DB.GENERIC) {
+export function fromPostgres(ast, diagramDb = DB.GENERIC, originalSQL = null) {
   const tables = [];
   const relationships = [];
   const types = [];
   const enums = [];
+  
+  // Create a mapping to restore original PostgreSQL types
+  const typeRestoreMapping = {
+    'VARCHAR(45)': 'INET',
+    'VARCHAR(43)': 'CIDR', 
+    'VARCHAR(17)': 'MACADDR',
+    'VARCHAR(23)': 'MACADDR8',
+    'VARCHAR(36)': 'UUID'
+  };
+  
+  // Extract original field types from SQL if available
+  const originalFieldTypes = new Map();
+  if (originalSQL) {
+    const fieldTypeRegex = /([\w"]+)\s+(INET|CIDR|MACADDR8?|UUID|JSONB|TSVECTOR|TSQUERY)\b/gi;
+    let match;
+    while ((match = fieldTypeRegex.exec(originalSQL)) !== null) {
+      const fieldName = match[1].replace(/"/g, '');
+      const originalType = match[2].toUpperCase();
+      originalFieldTypes.set(fieldName, originalType);
+    }
+  }
 
   const parseSingleStatement = (e) => {
     if (e.type === "create") {
@@ -56,7 +77,17 @@ export function fromPostgres(ast, diagramDb = DB.GENERIC) {
               dbToTypes[diagramDb][d.definition.dataType.toUpperCase()].type;
             type ??= affinity[diagramDb][d.definition.dataType.toUpperCase()];
 
-            field.type = type;
+            // Restore original PostgreSQL type if available
+            const originalType = originalFieldTypes.get(field.name);
+            if (originalType) {
+              field.type = originalType;
+            } else {
+              // Check if this is a mapped type that should be restored
+              const typeWithSize = d.definition.length ? 
+                `${d.definition.dataType.toUpperCase()}(${d.definition.length})` : 
+                d.definition.dataType.toUpperCase();
+              field.type = typeRestoreMapping[typeWithSize] || type;
+            }
 
             if (d.definition.expr && d.definition.expr.type === "expr_list") {
               field.values = d.definition.expr.value.map((v) => v.value);

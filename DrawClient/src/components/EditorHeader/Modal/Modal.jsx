@@ -142,16 +142,38 @@ export default function Modal({
   const parseSQLAndLoadDiagram = () => {
     const targetDatabase = database === DB.GENERIC ? importDb : database;
 
+    // Preprocess SQL to handle unsupported data types in node-sql-parser
+    let preprocessedSQL = importSource.src;
+    if (targetDatabase === DB.POSTGRES) {
+      // Map PostgreSQL-specific types that node-sql-parser doesn't recognize
+      const typeMapping = {
+        'INET': 'VARCHAR(45)',
+        'CIDR': 'VARCHAR(43)', 
+        'MACADDR': 'VARCHAR(17)',
+        'MACADDR8': 'VARCHAR(23)',
+        'UUID': 'VARCHAR(36)',
+        'JSONB': 'TEXT',
+        'TSVECTOR': 'TEXT',
+        'TSQUERY': 'TEXT'
+      };
+      
+      // Replace unsupported types with supported ones for parsing
+      Object.entries(typeMapping).forEach(([pgType, fallbackType]) => {
+        const regex = new RegExp(`\\b${pgType}\\b`, 'gi');
+        preprocessedSQL = preprocessedSQL.replace(regex, fallbackType);
+      });
+    }
+
     let ast = null;
     try {
       if (targetDatabase === DB.ORACLESQL) {
         const oracleParser = new OracleParser();
 
-        ast = oracleParser.parse(importSource.src);
+        ast = oracleParser.parse(preprocessedSQL);
       } else {
         const parser = new Parser();
 
-        ast = parser.astify(importSource.src, {
+        ast = parser.astify(preprocessedSQL, {
           database: targetDatabase,
         });
       }
@@ -169,6 +191,7 @@ export default function Modal({
         ast,
         database === DB.GENERIC ? importDb : database,
         database,
+        targetDatabase === DB.POSTGRES ? importSource.src : null
       );
 
       if (importSource.overwrite) {

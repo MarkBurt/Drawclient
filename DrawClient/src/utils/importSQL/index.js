@@ -7,7 +7,7 @@ import { fromOracleSQL } from "./oraclesql";
 import { fromPostgres } from "./postgres";
 import { fromSQLite } from "./sqlite";
 
-export function importSQL(ast, toDb = DB.MYSQL, diagramDb = DB.GENERIC) {
+export function importSQL(ast, toDb = DB.MYSQL, diagramDb = DB.GENERIC, originalSQL = null) {
   let diagram;
   switch (toDb) {
     case DB.SQLITE:
@@ -17,7 +17,7 @@ export function importSQL(ast, toDb = DB.MYSQL, diagramDb = DB.GENERIC) {
       diagram = fromMySQL(ast, diagramDb);
       break;
     case DB.POSTGRES:
-      diagram = fromPostgres(ast, diagramDb);
+      diagram = fromPostgres(ast, diagramDb, originalSQL);
       break;
     case DB.MARIADB:
       diagram = fromMariaDB(ast, diagramDb);
@@ -29,7 +29,7 @@ export function importSQL(ast, toDb = DB.MYSQL, diagramDb = DB.GENERIC) {
       diagram = fromOracleSQL(ast, diagramDb);
       break;
     default:
-      diagram = { tables: [], relationships: [] };
+      diagram = fromMySQL(ast, diagramDb);
       break;
   }
 
