@@ -5,7 +5,7 @@
 [![React](https://img.shields.io/badge/React-18-blue.svg)](https://reactjs.org/)
 [![Rust](https://img.shields.io/badge/Rust-1.70+-orange.svg)](https://www.rust-lang.org/)
 
-一个现代化的跨平台桌面绘图应用程序，基于 Tauri 和 React 构建。结合了 Rust 的高性能后端和 React 的现代化前端，为用户提供流畅的绘图体验。
+一个现代化的跨平台桌面数据库设计应用程序，基于 Tauri 和 React 构建。结合了 Rust 的高性能后端和 React 的现代化前端，为用户提供流畅的数据库设计体验。
 
 ## ✨ 特性
 
@@ -50,10 +50,40 @@ npm run tauri dev
 
 ### 构建
 
+#### 快速构建（当前平台）
 ```bash
 # 构建生产版本
 npm run tauri build
 ```
+
+#### 跨平台构建
+
+我们支持为多个平台构建应用程序：
+
+```bash
+# 1. 首先安装所有构建目标
+# macOS/Linux 用户
+./scripts/setup-targets.sh
+
+# Windows 用户
+.\scripts\setup-targets.ps1
+
+# 2. 构建特定平台
+npm run tauri:build:mac-arm64     # Mac M系列芯片
+npm run tauri:build:mac-intel     # Mac Intel芯片
+npm run tauri:build:windows       # Windows x64
+npm run tauri:build:linux         # Linux x64
+
+# 3. 一键构建所有主要平台
+npm run tauri:build:all-platforms
+```
+
+**支持的平台：**
+- 🍎 **macOS**: ARM64 (M系列) / Intel x64 / Universal
+- 🪟 **Windows**: x64 / ARM64
+- 🐧 **Linux**: x64 / ARM64
+
+📖 详细的构建指南请查看 [BUILD_GUIDE.md](BUILD_GUIDE.md)
 
 ## 项目目录结构
 

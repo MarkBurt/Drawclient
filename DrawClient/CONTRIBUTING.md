@@ -13,7 +13,7 @@
 在开始贡献之前，请确保您已经：
 
 1. 阅读了项目的 [README.md](README.md)
-2. 查看了现有的 [Issues](https://github.com/your-username/DrawClient/issues) 和 [Pull Requests](https://github.com/your-username/DrawClient/pulls)
+2. 查看了现有的 [Issues](https://github.com/MarkBurt/Drawclient/issues) 和 [Pull Requests](https://github.com/MarkBurt/Drawclient/pulls)
 3. 了解了项目的技术栈和架构
 
 ## 开发环境设置
@@ -28,7 +28,7 @@
 
 1. Fork 并克隆仓库
 ```bash
-git clone https://github.com/your-username/DrawClient.git
+git clone https://github.com/MarkBurt/Drawclient.git
 cd DrawClient
 ```
 

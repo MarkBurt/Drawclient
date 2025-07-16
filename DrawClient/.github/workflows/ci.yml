@@ -1,0 +1,178 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  release:
+    types: [ published ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  # 代码质量检查
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Lint frontend
+        run: |
+          npm run lint
+          npm run format:check
+          
+      - name: Build frontend
+        run: npm run build
+        
+      - name: Lint Rust code
+        run: |
+          cd src-tauri
+          cargo fmt --check
+          cargo clippy -- -D warnings
+          
+      - name: Test Rust code
+        run: |
+          cd src-tauri
+          cargo test
+
+  # 跨平台构建
+  build:
+    needs: lint-and-test
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # macOS 构建
+          - platform: 'macos-latest'
+            args: '--target aarch64-apple-darwin'
+            target: 'aarch64-apple-darwin'
+            name: 'macOS-ARM64'
+          - platform: 'macos-latest'
+            args: '--target x86_64-apple-darwin'
+            target: 'x86_64-apple-darwin'
+            name: 'macOS-Intel'
+          - platform: 'macos-latest'
+            args: '--target universal-apple-darwin'
+            target: 'universal-apple-darwin'
+            name: 'macOS-Universal'
+            
+          # Windows 构建
+          - platform: 'windows-latest'
+            args: '--target x86_64-pc-windows-msvc'
+            target: 'x86_64-pc-windows-msvc'
+            name: 'Windows-x64'
+          - platform: 'windows-latest'
+            args: '--target aarch64-pc-windows-msvc'
+            target: 'aarch64-pc-windows-msvc'
+            name: 'Windows-ARM64'
+            
+          # Linux 构建
+          - platform: 'ubuntu-20.04'
+            args: '--target x86_64-unknown-linux-gnu'
+            target: 'x86_64-unknown-linux-gnu'
+            name: 'Linux-x64'
+
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+          
+      - name: Install Linux dependencies
+        if: matrix.platform == 'ubuntu-20.04'
+        run: |
+          sudo apt update
+          sudo apt install -y libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf
+          
+      - name: Install frontend dependencies
+        run: npm ci
+        
+      - name: Build frontend
+        run: npm run build
+        
+      - uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: ${{ matrix.args }}
+          
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.name }}
+          path: |
+            src-tauri/target/${{ matrix.target }}/release/bundle/
+          retention-days: 30
+
+  # 发布构建产物
+  release:
+    if: github.event_name == 'release'
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        
+      - name: Display structure of downloaded files
+        run: ls -la
+        
+      - name: Create release archives
+        run: |
+          for dir in */; do
+            if [ -d "$dir" ]; then
+              echo "Creating archive for $dir"
+              tar -czf "${dir%/}.tar.gz" "$dir"
+            fi
+          done
+          
+      - name: Upload release assets
+        uses: softprops/action-gh-release@v1
+        with:
+          files: '*.tar.gz'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # 安全扫描
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          
+      - name: Upload Trivy scan results
+        uses: github/codeql-action/upload-sarif@v2
+        if: always()
+        with:
+          sarif_file: 'trivy-results.sarif'
