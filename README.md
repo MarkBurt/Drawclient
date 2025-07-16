@@ -162,7 +162,7 @@ This project is licensed under the MIT License - for details, please refer to th
 - [drawdb](https://github.com/drawdb-io/drawdb) -This project was used for the reconfiguration.
 ## 📞 Contact 
 If you have any questions or suggestions, please contact us through the following methods: 
-- Submit [Issue] (https://github.com/your-username/DrawClient/issues)
+- Submit [Issue] (https://github.com/MarkBurt/Drawclient/issues)
 - Send an email to hu_works.com 
 ---
 
